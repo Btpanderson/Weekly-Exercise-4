@@ -214,13 +214,21 @@ starbucks_with_2018_pop_est <-
   6. **`dplyr` review**: Look through the code above and describe what each line of code does.
   
 Read_csv reads in the csv link and places it into a new data set,
+
 Seperate() separates the state column into two: a dot column and a state column,
+
 Select() displays everything in the data set except the indicate variable dot,
+
 Mutate() changes all instants/data under the variable state from its original format into lower case,  
+
 Starbucks_with_2018_pop_est <-creates a new data set called starbucks_with_2018_pop_est
+
 Starbucks_us_by_state %>% calls the data set starbucks_us_by_state that will used to form the new data set
+
 Left_join(census_pop_est_2018, left joins the data set starbucks_us_by_state with census_pop_est_2018
+
 By = c("state_name" = "state")) %>% joins starbucks_us_by_state with census_pop_est_2018 by state_name and state
+
 Mutate(starbucks_per_10000 = (n/est_pop_2018)*10000) creates a new variable that takes the number of Starbucks locations in a state and divides it by the population, which then is multiplied by 10,000 to determine the number of Starbucks per 10,000 people.
 
   7. Create a choropleth map that shows the number of Starbucks per 10,000 people on a map of the US. Use a new fill color, add points for all Starbucks in the US (except Hawaii and Alaska), add an informative title for the plot, and include a caption that says who created the plot (you!). Make a conclusion about what you observe.
@@ -252,7 +260,7 @@ ggplot() +
        fill = "Density")
 ```
 
-*From this visualization, I can see the locations of every Starbucks within the USA accounted for in the dataset and each state is colored through the number of Starbucks per 10,000 people. Washington seems to have the most Starbucks locations in regards to 10,000 people of their population than any other state, where Oregon, Nevada, Colorado follow with a little less. There fewer amounts of locations that extends from the middle to east coast of the US.*
+*From this visualization, I can see the locations of every Starbucks within the USA accounted for in the dataset and each state is colored by the number of Starbucks per 10,000 people. Washington seems to have the most Starbucks locations in regards to 10,000 people of their population than any other state, where Oregon, Nevada, and Colorado follow with a little less. There fewer amounts of locations that extends from the middle to east coast of the US.*
 
 ### A few of your favorite things (`leaflet`)
 
@@ -341,7 +349,8 @@ ggmap(stations_map) +
          size = 1.5) +
   labs(title = "Map of Bike Rental Station Locations in Washington with Number of Departures",
        color = "Departures") +
-  theme_map()
+  theme_map() +
+  theme(legend.background = element_blank())
 ```
   
   10. Only 14.4% of the trips in our data are carried out by casual users. Create a plot that shows which area(s) have stations with a much higher percentage of departures by casual users. What patterns do you notice? Also plot this on top of a map. I think it will be more clear what the patterns are.
@@ -370,10 +379,11 @@ ggmap(stations_map) +
              color = percent_casual)) +
   labs(title = "Proportion of Casual Departures at Station Locations in Washington ",
        col = "Percentage of Casual") +
-  theme_map()
+  theme_map() +
+  theme(legend.background = element_blank())
 ```
   
-*The center of graph shows a pattern of the major bulk of the data points, where it displays more of registered client stations. Registered clients tend to use the bikes in more closely dense areas compared to casual riders, which make up a few stations. It also can be seen that some stations outside the city are used more for casual riders*
+*The center of the map shows a pattern of the major bulk of the data points, where it displays more of registered client stations with several casual stations within the city. Registered clients tend to use the bikes in more closely dense areas compared to casual riders, which make up a few stations. It also can be seen that some stations outside the city are used more for casual riders*
 
 ### COVID-19 data
 
@@ -398,6 +408,7 @@ covid19 %>%
        fill ="Cases") +
   theme_map()
 ```
+
 *From this visualization, I can see that the majority of states have a relative low number of recent COVID cases except California, Texas, Florida, and New York. Although, this map doesn't show Hawaii and Alaska, and showcases the total number of cases in the state rather than the specific areas in each that have been the most affected which take the majority of the numbers. The entirety of each state area wouldn't have an equal number of cases spread across evenly as less densely populated areas don't seem to be affected the same as more densely populated.*
   
   12. Now add the population of each state to the dataset and color the states by most recent cumulative cases/10,000 people. See the code for doing this with the Starbucks data. You will need to make some modifications. 
@@ -509,6 +520,9 @@ leaflet(mpls_all) %>%
 ## GitHub link
 
   19. Below, provide a link to your GitHub page with this set of Weekly Exercises. Specifically, if the name of the file is 04_exercises.Rmd, provide a link to the 04_exercises.md file, which is the one that will be most readable on GitHub.
+ 
+https://github.com/Btpanderson/Weekly-Exercise-4/blob/master/04_exercises.Rmd 
 
+https://github.com/Btpanderson/Weekly-Exercise-4/blob/master/04_exercises.md
 
 **DID YOU REMEMBER TO UNCOMMENT THE OPTIONS AT THE TOP?**
